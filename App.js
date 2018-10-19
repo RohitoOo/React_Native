@@ -1,6 +1,8 @@
 import React, { Component } from 'react'; 
 import { Text, View, AppRegistry, StyleSheet, TouchableOpacity, Alert, TouchableHighlight, TextInput } from 'react-native';
-import Component1 from './app/components/Component1/Component1'
+import Component1 from './app/components/Component1/Component1';
+import Component2 from './app/components/Component2/Component2';
+import Component3 from './app/components/Component3/Component3';
 
 
 const styles = StyleSheet.create({
@@ -42,38 +44,42 @@ export default class myapp extends Component {
   }
   render(){
     return(
-      <View style={styles.parentView} > 
-      <TouchableHighlight 
-      style={styles.view1} onPress={this._buttonPressAction}
-      underlayColor= "blue"
-      >
-          <View  >
-            <Text style={{top:100}}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, eveniet? Obcaecati autem atque, blanditiis fugiat similique, et eaque qui repellendus nemo saepe, natus aperiam ipsam sint? Animi iusto dicta excepturi?
-            </Text>
-          </View >
-      </TouchableHighlight> 
-         <TouchableOpacity style={styles.view2}
-          onPress={this._buttonPressAction2}
-          activeOpacity= {0}
-         > 
-          <View >
-            <Text style={{top:200}}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, eveniet? Obcaecati autem atque, blanditiis fugiat similique, et eaque qui repellendus nemo saepe, natus aperiam ipsam sint? Animi iusto dicta excepturi?
-            </Text>
-          </View>
-          </TouchableOpacity>           
-          <View style={styles.view3}>
+      <Component3/>
+
+      // <Component2 alertMessage={"Hello From Parent Component"}/>
+
+      // <View style={styles.parentView} > 
+      // <TouchableHighlight 
+      // style={styles.view1} onPress={this._buttonPressAction}
+      // underlayColor= "blue"
+      // >
+      //     <View  >
+      //       <Text style={{top:100}}>
+      //       Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, eveniet? Obcaecati autem atque, blanditiis fugiat similique, et eaque qui repellendus nemo saepe, natus aperiam ipsam sint? Animi iusto dicta excepturi?
+      //       </Text>
+      //     </View >
+      // </TouchableHighlight> 
+      //    <TouchableOpacity style={styles.view2}
+      //     onPress={this._buttonPressAction2}
+      //     activeOpacity= {0}
+      //    > 
+      //     <View >
+      //       <Text style={{top:200}}>
+      //         Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, eveniet? Obcaecati autem atque, blanditiis fugiat similique, et eaque qui repellendus nemo saepe, natus aperiam ipsam sint? Animi iusto dicta excepturi?
+      //       </Text>
+      //     </View>
+      //     </TouchableOpacity>           
+      //     <View style={styles.view3}>
           
-            <TextInput
-             multiline = {true}
-              style={{height: "90%", borderColor: 'black', borderWidth: 1, top:"5%"}}
-              onChangeText={(text) => this.setState({text})}
-              value={this.state.text}
-            />
+      //       <TextInput
+      //        multiline = {true}
+      //         style={{height: "90%", borderColor: 'black', borderWidth: 1, top:"5%"}}
+      //         onChangeText={(text) => this.setState({text})}
+      //         value={this.state.text}
+      //       />
   
-          </View>      
-      </View>
+      //     </View>      
+      // </View>
     )
   }
 }
