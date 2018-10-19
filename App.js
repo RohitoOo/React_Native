@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import { Text, View, AppRegistry, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { Text, View, AppRegistry, StyleSheet, TouchableOpacity, Alert, TouchableHighlight, TextInput } from 'react-native';
 import Component1 from './app/components/Component1/Component1'
 
 
@@ -11,37 +11,69 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
-  outerCircle: {
-    backgroundColor: 'blue',
-    width: 100,
-    height: 100,
-    borderRadius: 100/2,
-    alignContent: "center"
+  parentView : {
+    flexDirection : "row", 
+    height: "100%" 
   },
-  innerCircle: {
-    backgroundColor: 'red',
-    width: 100,
-    height: 80,
-    borderRadius: 80/2,
+  view1 : {
+    flex : 1, backgroundColor: "red"  
+  },
+  view2 : {
+    flex : 1, backgroundColor: "white"  
+  },
+  view3: {
+    flex : 1, backgroundColor: "red"  
   }
+
 });
 
 
 export default class myapp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { text: 'Editable Text' };
+  }
 
   _buttonPressAction() {
-    Alert.alert("Wassup Dock!?");
+    console.log("Area Pressed")
+  }
+  _buttonPressAction2(){
+    console.log("Area 2 Pressed")
   }
   render(){
     return(
-      <TouchableOpacity 
-                        onPress={this._buttonPressAction}
-                        style={styles.container}>
-                        <Component1 style={styles.container}/>
-          <View style={styles.innerCircle} />
+      <View style={styles.parentView} > 
+      <TouchableHighlight 
+      style={styles.view1} onPress={this._buttonPressAction}
+      underlayColor= "blue"
+      >
+          <View  >
+            <Text style={{top:100}}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, eveniet? Obcaecati autem atque, blanditiis fugiat similique, et eaque qui repellendus nemo saepe, natus aperiam ipsam sint? Animi iusto dicta excepturi?
+            </Text>
+          </View >
+      </TouchableHighlight> 
+         <TouchableOpacity style={styles.view2}
+          onPress={this._buttonPressAction2}
+          activeOpacity= {0}
+         > 
+          <View >
+            <Text style={{top:200}}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, eveniet? Obcaecati autem atque, blanditiis fugiat similique, et eaque qui repellendus nemo saepe, natus aperiam ipsam sint? Animi iusto dicta excepturi?
+            </Text>
+          </View>
+          </TouchableOpacity>           
+          <View style={styles.view3}>
           
-      </TouchableOpacity>
-     
+            <TextInput
+             multiline = {true}
+              style={{height: "90%", borderColor: 'black', borderWidth: 1, top:"5%"}}
+              onChangeText={(text) => this.setState({text})}
+              value={this.state.text}
+            />
+  
+          </View>      
+      </View>
     )
   }
 }
